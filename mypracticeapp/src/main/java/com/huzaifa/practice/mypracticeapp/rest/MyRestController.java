@@ -25,4 +25,18 @@ public class MyRestController {
                 + disclaimer +
                 "</div>";
     }
+
+    @GetMapping("/workout")
+    public String Workout() {
+        return "<div style=\"text-align: center\">"
+                + "<p>Run 5kms.</p>" +
+                "</div>";
+    }
+
+    @GetMapping("/fortune")
+    public String Fortune() {
+        return "<div style=\"text-align: center\">"
+                + "<p>Today is your lucky day.</p>" +
+                "</div>";
+    }
 }
