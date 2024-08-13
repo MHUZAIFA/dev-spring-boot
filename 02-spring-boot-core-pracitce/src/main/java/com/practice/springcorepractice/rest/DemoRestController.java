@@ -19,6 +19,7 @@ public class DemoRestController {
     /* Setter injection - used for injecting optional dependencies */
     @Autowired
     public void setCoach(ICoach coach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
         this.coach = coach;
     }
 

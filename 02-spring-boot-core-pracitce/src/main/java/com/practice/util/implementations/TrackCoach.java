@@ -1,11 +1,11 @@
 package com.practice.util.implementations;
 
 import com.practice.util.interfaces.ICoach;
-import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Lazy
+@Primary
 public class TrackCoach implements ICoach {
 
     public TrackCoach() {
