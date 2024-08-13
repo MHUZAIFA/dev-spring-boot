@@ -2,6 +2,7 @@ package com.practice.springcorepractice.rest;
 
 import com.practice.util.interfaces.ICoach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ public class DemoRestController {
 
     /* Setter injection - used for injecting optional dependencies */
     @Autowired
-    public void setCoach(ICoach coach) {
+    public void setCoach(@Qualifier("baseballCoach") ICoach coach) {
         this.coach = coach;
     }
 
