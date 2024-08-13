@@ -11,9 +11,16 @@ public class DemoRestController {
     private ICoach coach = null;
 
     @Autowired
+    public void setCoach(ICoach coach) {
+        this.coach = coach;
+    }
+
+    /*
+    @Autowired
     public DemoRestController(ICoach coach) {
         this.coach = coach;
     }
+    */
 
     @GetMapping("/daily-workout")
     public String getDailyWorkout() {
