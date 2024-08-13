@@ -8,14 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoRestController {
 
+    /*
+    Field injection
+    - no need for constructor and setter injection
+    - not recommended as makes it difficult to unit test
+    */
     private ICoach coach = null;
 
+    /* Setter injection - used for injecting optional dependencies */
     @Autowired
     public void setCoach(ICoach coach) {
         this.coach = coach;
     }
 
     /*
+    Constructor injection - used for injecting required dependencies
     @Autowired
     public DemoRestController(ICoach coach) {
         this.coach = coach;
