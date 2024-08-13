@@ -18,7 +18,7 @@ public class DemoRestController {
 
     /* Setter injection - used for injecting optional dependencies */
     @Autowired
-    public void setCoach(@Qualifier("baseballCoach") ICoach coach) {
+    public void setCoach(ICoach coach) {
         this.coach = coach;
     }
 
