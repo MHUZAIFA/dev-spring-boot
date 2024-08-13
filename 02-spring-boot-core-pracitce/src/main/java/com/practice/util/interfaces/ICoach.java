@@ -1,4 +1,4 @@
-package com.practice.springcorepractice.interfaces;
+package com.practice.util.interfaces;
 
 public interface ICoach {
     String getDailyWorkout();

@@ -23,7 +23,12 @@ Behind the scenes
 and more...
 */
 
-@SpringBootApplication
+@SpringBootApplication(
+		scanBasePackages = {
+				"com.practice.springcorepractice",
+				"com.practice.util"
+		}
+)
 public class SpringcorepracticeApplication {
 
 	public static void main(String[] args) {
