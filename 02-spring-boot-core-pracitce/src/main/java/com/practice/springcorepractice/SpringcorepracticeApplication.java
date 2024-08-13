@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /*
 @SpringBootApplication
 enables
-1. Auto configuration
+1. Autoconfiguration
 2. Component Scanning
 3. Additional Configuration
 

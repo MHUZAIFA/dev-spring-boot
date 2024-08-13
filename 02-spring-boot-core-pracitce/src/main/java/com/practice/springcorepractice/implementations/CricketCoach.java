@@ -1,5 +1,6 @@
-package com.practice.springcorepractice;
+package com.practice.springcorepractice.implementations;
 
+import com.practice.springcorepractice.interfaces.ICoach;
 import org.springframework.stereotype.Component;
 
 @Component
