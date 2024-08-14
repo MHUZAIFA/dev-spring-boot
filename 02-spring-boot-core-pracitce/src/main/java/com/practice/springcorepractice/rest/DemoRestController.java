@@ -15,25 +15,42 @@ public class DemoRestController {
     - not recommended as makes it difficult to unit test
     */
     private ICoach coach = null;
+    private ICoach anotherCoach = null;
 
-    /* Setter injection - used for injecting optional dependencies */
+    /* Setter injection - used for injecting optional dependencies
     @Autowired
     public void setCoach(ICoach coach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         this.coach = coach;
     }
+    */
+
 
     /*
     Constructor injection - used for injecting required dependencies
-    @Autowired
-    public DemoRestController(ICoach coach) {
-        this.coach = coach;
-    }
     */
+    @Autowired
+    public DemoRestController(@Qualifier("cricketCoach") ICoach coach,
+                              @Qualifier("cricketCoach") ICoach anotherCoach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+        this.coach = coach;
+        this.anotherCoach = anotherCoach;
+
+    }
 
     @GetMapping("/daily-workout")
     public String getDailyWorkout() {
         return this.coach.getDailyWorkout();
+    }
+
+    /*
+    this.coach == this.anotherCoach
+    Singleton --> returns true as refers to same cached bean.
+    Prototype --> returns false as refers to different cached beans.
+    */
+    @GetMapping("/check")
+    public String check() {
+        return "Comparing coach and anotherCoach bean: coach == anotherCoach, " + (this.coach == this.anotherCoach);
     }
 
 }
