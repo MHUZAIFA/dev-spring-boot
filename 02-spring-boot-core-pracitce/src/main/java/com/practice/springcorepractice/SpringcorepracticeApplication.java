@@ -26,6 +26,7 @@ and more...
 @SpringBootApplication(
 		scanBasePackages = {
 				"com.practice.springcorepractice",
+				"com.practice.config",
 				"com.practice.util"
 		}
 )
