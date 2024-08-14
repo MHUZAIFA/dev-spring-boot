@@ -28,14 +28,19 @@ public class DemoRestController {
 
     /*
     Constructor injection - used for injecting required dependencies
-    */
     @Autowired
     public DemoRestController(@Qualifier("cricketCoach") ICoach coach,
                               @Qualifier("cricketCoach") ICoach anotherCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         this.coach = coach;
         this.anotherCoach = anotherCoach;
+    }
+    */
 
+    @Autowired
+    public DemoRestController(@Qualifier("cricketCoach") ICoach coach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+        this.coach = coach;
     }
 
     @GetMapping("/daily-workout")
