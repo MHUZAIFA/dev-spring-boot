@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 // @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+// For "prototype" scoped beans, Spring does not call the destroy method.
 public class CricketCoach implements ICoach {
 
     public CricketCoach() {
