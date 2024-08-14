@@ -38,7 +38,7 @@ public class DemoRestController {
     */
 
     @Autowired
-    public DemoRestController(@Qualifier("swimCoach") ICoach coach) {
+    public DemoRestController(@Qualifier("waterSport") ICoach coach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         this.coach = coach;
     }
