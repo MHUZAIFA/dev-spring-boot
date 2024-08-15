@@ -27,8 +27,9 @@ public class CruddemoApplication {
 			readStudentByLastname(studentDAO);
 			updateStudent(studentDAO);
 			deleteStudent(studentDAO);
-			 */
 			deleteAllStudent(studentDAO);
+			 */
+			createStudent(studentDAO);
 
 		};
 	}
