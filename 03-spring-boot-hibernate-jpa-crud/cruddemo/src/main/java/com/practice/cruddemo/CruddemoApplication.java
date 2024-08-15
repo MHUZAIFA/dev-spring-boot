@@ -26,10 +26,15 @@ public class CruddemoApplication {
 			readAllStudents(studentDAO);
 			readStudentByLastname(studentDAO);
 			updateStudent(studentDAO);
-			 */
 			deleteStudent(studentDAO);
+			 */
+			deleteAllStudent(studentDAO);
 
 		};
+	}
+
+	private void deleteAllStudent(StudentDAO studentDAO) {
+		System.out.println("Deleted rows: " + studentDAO.deleteAll());
 	}
 
 	private void deleteStudent(StudentDAO studentDAO) {

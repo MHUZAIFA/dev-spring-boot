@@ -69,4 +69,13 @@ public class StudentDAO implements IStudentDAO{
         Student student = getById(id);
         entityManager.remove(student);
     }
+
+    @Override
+    @Transactional
+    public int deleteAll() {
+        // Note: executeUpdate here means perform this operation on the db... it doesn't mean db update cmd.
+        return this.entityManager
+                .createQuery("delete from Student")
+                .executeUpdate();
+    }
 }
