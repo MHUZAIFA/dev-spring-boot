@@ -2,9 +2,12 @@ package com.practice.cruddemo.dao;
 
 import com.practice.cruddemo.entities.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class StudentDAO implements IStudentDAO{
@@ -25,5 +28,11 @@ public class StudentDAO implements IStudentDAO{
     @Override
     public Student getById(int id) {
         return this.entityManager.find(Student.class, id);
+    }
+
+    @Override
+    public List<Student> getAll() {
+        TypedQuery<Student> studentTypedQuery = entityManager.createQuery("from Student", Student.class);
+        return studentTypedQuery.getResultList();
     }
 }
