@@ -32,7 +32,9 @@ public class StudentDAO implements IStudentDAO{
 
     @Override
     public List<Student> getAll() {
-        TypedQuery<Student> studentTypedQuery = entityManager.createQuery("from Student", Student.class);
+        // Note: In JPA Query the Student is the class name NOT the SQL Table name
+        // and lastname is the java Student class property and not the SQL column name last_name
+        TypedQuery<Student> studentTypedQuery = entityManager.createQuery("from Student order by lastname asc", Student.class);
         return studentTypedQuery.getResultList();
     }
 }
