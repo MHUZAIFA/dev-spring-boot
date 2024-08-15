@@ -19,6 +19,7 @@ public class CruddemoApplication {
 		return runner -> {
 			System.out.println("Hello World!");
 			createStudent(studentDAO);
+			readStudent(studentDAO);
 		};
 	}
 
@@ -26,13 +27,39 @@ public class CruddemoApplication {
 
 		// create student object
 		System.out.println("Creating new student object...");
-		Student student = new Student("Mohammed", "Huzaifa", "huzaifa@gmail.com");
+		Student student = new Student("Talha", "Anjum", "talha@gmail.com");
 
 		// save the student object
 		studentDAO.save(student);
 
 		// display id of the saved student
 		System.out.println("Saved student. Generated id: " + student.getId());
+
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// create student object
+		System.out.println("Creating new student object...");
+		Student student = new Student("Ariba", "Afroz", "ariba@gmail.com");
+
+		// save the student object
+		studentDAO.save(student);
+
+		// display id of the saved student
+		System.out.println("Saved student. Generated id: " + student.getId());
+
+		// get saved student details
+		System.out.println("Getting the saved student details");
+
+		Student savedStudent = studentDAO.getById(student.getId());
+
+		if (savedStudent != null) {
+			System.out.println("Student details: " + savedStudent);
+		} else {
+			System.out.println("Student not found for id: " + student.getId());
+		}
+
 	}
 
 }
