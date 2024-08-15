@@ -20,11 +20,35 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			System.out.println("Hello World!");
-			// createStudent(studentDAO);
-			// readStudent(studentDAO);
-			// readAllStudents(studentDAO);
+			/*
+			createStudent(studentDAO);
+			readStudent(studentDAO);
+			readAllStudents(studentDAO);
 			readStudentByLastname(studentDAO);
+			 */
+			updateStudent(studentDAO);
+
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+
+		// retrieve student by id
+		int studentId = 2;
+		System.out.println("Retrieving student object...");
+		Student student = studentDAO.getById(studentId);
+
+		// change firstname and lastname
+		System.out.println("updating student object...");
+		student.setFirstname("Mohammed");
+		student.setLastname("Talha");
+
+		// update the student
+		System.out.println("Saving student object...");
+		studentDAO.update(student);
+
+		// display updated student
+		System.out.println("Updated student object: " + studentDAO.getById(studentId));
 	}
 
 	private void readStudentByLastname(StudentDAO studentDAO) {

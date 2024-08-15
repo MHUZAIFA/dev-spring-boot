@@ -45,4 +45,10 @@ public class StudentDAO implements IStudentDAO{
         studentTypedQuery.setParameter("searchTerm", lastname);
         return studentTypedQuery.getResultList();
     }
+
+    @Override
+    @Transactional
+    public void update(Student student) {
+        this.entityManager.merge(student);
+    }
 }
