@@ -62,4 +62,11 @@ public class StudentDAO implements IStudentDAO{
 
          */
     }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        Student student = getById(id);
+        entityManager.remove(student);
+    }
 }
