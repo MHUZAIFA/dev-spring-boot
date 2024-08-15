@@ -50,5 +50,16 @@ public class StudentDAO implements IStudentDAO{
     @Transactional
     public void update(Student student) {
         this.entityManager.merge(student);
+
+        /*
+
+        TO update multiple records at the same time.
+
+        int numberOfUpdatedRows =
+                this.entityManager
+                        .createQuery("Update Student set lastname='Tester'", Student.class)
+                        .executeUpdate();
+
+         */
     }
 }
