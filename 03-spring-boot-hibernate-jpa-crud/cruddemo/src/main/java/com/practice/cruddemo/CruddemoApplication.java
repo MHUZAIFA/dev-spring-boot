@@ -22,8 +22,14 @@ public class CruddemoApplication {
 			System.out.println("Hello World!");
 			// createStudent(studentDAO);
 			// readStudent(studentDAO);
-			readAllStudents(studentDAO);
+			// readAllStudents(studentDAO);
+			readStudentByLastname(studentDAO);
 		};
+	}
+
+	private void readStudentByLastname(StudentDAO studentDAO) {
+		List<Student> students = studentDAO.getByLastname("Anjum");
+		students.forEach(System.out::println);
 	}
 
 	private void createStudent(StudentDAO studentDAO) {

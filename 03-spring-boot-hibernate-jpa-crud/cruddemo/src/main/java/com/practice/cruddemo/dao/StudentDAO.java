@@ -37,4 +37,12 @@ public class StudentDAO implements IStudentDAO{
         TypedQuery<Student> studentTypedQuery = entityManager.createQuery("from Student order by lastname asc", Student.class);
         return studentTypedQuery.getResultList();
     }
+
+    @Override
+    public List<Student> getByLastname(String lastname) {
+        TypedQuery<Student> studentTypedQuery =
+                this.entityManager.createQuery("from Student where lastname=:searchTerm", Student.class);
+        studentTypedQuery.setParameter("searchTerm", lastname);
+        return studentTypedQuery.getResultList();
+    }
 }

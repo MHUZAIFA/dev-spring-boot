@@ -8,4 +8,5 @@ public interface IStudentDAO {
     void save(Student student);
     Student getById(int id);
     List<Student> getAll();
+    List<Student> getByLastname(String lastname);
 }
